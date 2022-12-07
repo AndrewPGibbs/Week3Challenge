@@ -60,24 +60,29 @@ function generatePassword() {
       if (numbers === true) {
         minimumNumbers = functionArray.getNumbers();
         minimumCount++;
-    
+      } else {
+        numbers = ''
       }
     
       if (lowerCases === true) {
        lowerCases = 'abcdefghijklmnopqrstuvwxyz'
         minimumCount++;
-    
+      } else {
+        lowerCases = ''
       }
     
       if (upperCases === true) {
         upperCases = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         minimumCount++;
-    
+      } else {
+        upperCases = ''
       }
     
       if (specialChar === true) {
         specialChar = '~`!@#$%^&*()-+={}[]|/:;<>,.?'
         minimumCount++;
+      } else {
+        specialChar = ''
       }
 
       var randomPasswordGenerated = "";
