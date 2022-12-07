@@ -28,32 +28,32 @@ function generatePassword() {
 
 // this function is reponsible for generating the randomized characters
 
-    //     function makepassword(passwordLength) {
-    //    const array = new Uint32Array(passwordLength) ;
-    //    window.crypto.getRandomValues(array);
-    //    for (i=0; i<passwordLength; i++){
-    //     minimumNumbers += numberChars[array[i] % numberChars.length];
-    //    }
-    //    console.log(minimumNumbers)
-    //    return minimumNumbers;
-    // }
+        function makepassword(passwordLength) {
+       const array = new Uint32Array(passwordLength) ;
+       window.crypto.getRandomValues(array);
+       for (i=0; i < passwordLength; i++){
+        minimumNumbers += numberChars[array[i] % numberChars.length];
+       }
+       console.log(minimumNumbers)
+       return minimumNumbers;
+    }
 
     var functionArray = {
         getNumbers: function () {
           return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
         },
     
-        getLowerCases: function () {
-          return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
-        },
+        // getLowerCases: function () {
+        //   return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+        // },
     
-        getUpperCases: function () {
-          return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
-        },
+        // getUpperCases: function () {
+        //   return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+        // },
     
-        getSpecialCharacters: function () {
-          return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-        }
+        // getSpecialCharacters: function () {
+        //   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+        // }
     
       };
 
@@ -64,19 +64,19 @@ function generatePassword() {
       }
     
       if (lowerCases === true) {
-        minimumLowerCases = functionArray.getLowerCases();
+       lowerCases = 'abcdefghijklmnopqrstuvwxyz'
         minimumCount++;
     
       }
     
       if (upperCases === true) {
-        minimumUpperCases = functionArray.getUpperCases();
+        upperCases = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         minimumCount++;
     
       }
     
       if (specialChar === true) {
-        minimumSpecialCharacters = functionArray.getSpecialCharacters();
+        specialChar = '~`!@#$%^&*()-+={}[]|/:;<>,.?'
         minimumCount++;
       }
 
