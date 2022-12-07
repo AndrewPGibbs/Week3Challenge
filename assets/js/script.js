@@ -28,37 +28,36 @@ function generatePassword() {
 
 // this function is reponsible for generating the randomized characters
 
-        function makepassword(passwordLength) {
-       const array = new Uint32Array(passwordLength) ;
-       window.crypto.getRandomValues(array);
-       for (i=0; i < passwordLength; i++){
-        minimumNumbers += numberChars[array[i] % numberChars.length];
-       }
-       console.log(minimumNumbers)
-       return minimumNumbers;
-    }
+    //     function makepassword(passwordLength) {
+    //    const array = new Uint32Array(passwordLength) ;
+    //    window.crypto.getRandomValues(array);
+    //    for (i=0; i < passwordLength; i++){
+    //     minimumNumbers += numberChars[array[i] % numberChars.length];
+    //    }
+    //    console.log(minimumNumbers)
+    //    return minimumNumbers;
+    // }
 
-    var functionArray = {
-        getNumbers: function () {
-          return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
-        },
+    // var functionArray = {
+    //     getNumbers: function () {
+    //       return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
+    //     },
+    //     // getLowerCases: function () {
+    //     //   return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+    //     // },
     
-        // getLowerCases: function () {
-        //   return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
-        // },
+    //     // getUpperCases: function () {
+    //     //   return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+    //     // },
     
-        // getUpperCases: function () {
-        //   return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
-        // },
+    //     // getSpecialCharacters: function () {
+    //     //   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+    //     // }
     
-        // getSpecialCharacters: function () {
-        //   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-        // }
-    
-      };
+    //   };
 
       if (numbers === true) {
-        minimumNumbers = functionArray.getNumbers();
+        numbers = '123456789'
         minimumCount++;
       } else {
         numbers = ''
@@ -84,18 +83,20 @@ function generatePassword() {
       } else {
         specialChar = ''
       }
-
       var randomPasswordGenerated = "";
 
-      for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
-        var randomNumber = Math.floor(Math.random() * 4);
-        randomPasswordGenerated += randomNumber;
+      // for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
+      //   var randomNumber = Math.floor(Math.random() * 4);
+      //   randomPasswordGenerated += randomNumber;
+      // }
+      randomPasswordGeneratedString = specialChar.concat(lowerCases, upperCases, numbers);
+      for (var i = 0; i < passwordLength; i++) {
+        randomPasswordGenerated += randomPasswordGeneratedString[Math.floor(Math.random() * randomPasswordGeneratedString.length)];
       }
-
-      randomPasswordGenerated += minimumNumbers;
-      randomPasswordGenerated += minimumLowerCases;
-      randomPasswordGenerated += minimumUpperCases;
-      randomPasswordGenerated += minimumSpecialCharacters;
+      // randomPasswordGenerated += minimumNumbers;
+      // randomPasswordGenerated += minimumLowerCases;
+      // randomPasswordGenerated += minimumUpperCases;
+      // randomPasswordGenerated += minimumSpecialCharacters;
       return randomPasswordGenerated;
 }
 
